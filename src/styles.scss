@@ -1,0 +1,152 @@
+@import '~@angular/material/prebuilt-themes/indigo-pink.css';
+@import url('https://use.fontawesome.com/releases/v5.1.0/css/all.css');
+@import url('https://fonts.googleapis.com/css?family=Material+Icons|Roboto+Condensed');
+@import url('https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css');
+
+::-webkit-scrollbar-track {
+  border-radius: 10px;
+  background-color: rgba(255, 255, 255, 0);
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+  background-color: #F5F5F5;
+}
+
+::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  background-color: #555;
+}
+
+html,
+body {
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  background-color: #292929;
+
+&.lock {
+   overflow: hidden;
+ }
+}
+
+.button-fix {
+  font-size: 1.2rem;
+}
+
+a,
+a:hover,
+u,
+u:hover,
+.no-underline,
+.no-underline:hover {
+  text-decoration: none;
+}
+
+.curs-pointer {
+  cursor: pointer;
+}
+
+.dark-hover:hover {
+  background-color: #f0f0f0;
+}
+
+.rainbow {
+  background: linear-gradient(to top, black, black, yellow, magenta, blue, blue);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.fh-fade {
+  background: linear-gradient(to top, rgba(0, 0, 0, 0), black);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.sons-fade {
+  background: linear-gradient(to top, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.7), black);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.roboto {
+  font-family: 'Roboto Condensed', sans-serif;
+}
+.custom-line {
+  padding-bottom: 1.5rem !important;
+  position: relative !important;
+  margin-top: 0.75rem !important;
+}
+.btn-primary {
+  color: #fff;
+  background-color: #3c3c3c;
+  border-color: #5a5e63;
+}
+.btn-primary:hover,
+.btn-primary:active {
+  background-color: #53709f !important;
+  border-color: #3e557a !important;
+}
+mat-list-item:hover {
+  background-color: #ececec;
+  cursor: pointer;
+}
+mat-form-field#totalCost .mat-form-field-label-wrapper {
+  text-align: right;
+}
+
+//sticky footer
+  .wrapper {
+    min-height: 100%;
+    margin-bottom: -312px;
+  }
+.footer,
+.push {
+  height: 312px;
+}
+footer {
+  background-color: #3c3c3c;
+  color: #c7c7c7;
+}
+footer a,
+footer a:active,
+footer a:focus {
+  color: #808080;
+  text-decoration: none;
+}
+footer a:hover {
+  color: white;
+}
+footer h1,
+footer h2,
+footer h3,
+footer h4,
+footer h5 {
+  color: #507b9c;
+}
+.footer-sub {
+  background-color: #292929;
+  color: #808080;
+}
+.mat-form-field-indix {
+  padding: 0.5em 0 1em 0;
+}
+
+@media print {
+  .ml-print-0 {
+    margin-left: 0 !important;
+  }
+
+  .formula-card {
+    max-width: none !important;
+  }
+}
+
+.formula-card {
+  max-width: 600px;
+}
+
