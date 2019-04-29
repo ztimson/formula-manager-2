@@ -16,8 +16,7 @@ export class AuthService {
         if(!user) return from([false]);
         let ref = this.db.collection('users').doc(user.uid);
         return ref.valueChanges().pipe(map(dbUser => Object.assign({ref: ref}, user, dbUser)))
-      }),
-      tap(user => console.log(user))
+      })
     ).subscribe(user => this.user.next(user));
   }
 

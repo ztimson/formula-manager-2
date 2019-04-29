@@ -14,7 +14,7 @@
 </mat-toolbar>
 <mat-drawer-container class="flex-grow-1">
   <mat-drawer #drawer class="d-print-none" mode="side" [autoFocus]="false" opened>
-    <div class="sticky-top bg-white">
+    <div class="sticky-top bg-white" style="height: 105px">
       <mat-form-field appearance="outline" class="mx-3 mt-3 pb-0">
         <mat-label>Search</mat-label>
         <input matInput (keyup)="search.next($event.target.value)">
@@ -22,16 +22,16 @@
       </mat-form-field>
     </div>
     <mat-divider></mat-divider>
-    <mat-list>
-      <ng-container *ngFor="let f of formulas | async; let i = index">
-        <div *ngIf="i < 50">
+    <cdk-virtual-scroll-viewport itemSize="50" style="height: calc(100vh - 170px)">
+      <mat-list>
+        <div *cdkVirtualFor="let f of formulas | async; let i = index">
           <mat-divider *ngIf="i > 0"></mat-divider>
           <mat-list-item (click)="displayFormula(f)" [ngClass]="{'active': f.id == formula?.id}">
             <mat-icon *ngIf="!f.approved" class="mr-3 text-danger">remove_circle</mat-icon> {{f.name}}
           </mat-list-item>
         </div>
-      </ng-container>
-    </mat-list>
+      </mat-list>
+    </cdk-virtual-scroll-viewport>
   </mat-drawer>
   <mat-drawer-content class="p-3 bg-white ml-print-0" style="min-height: calc(100vh - 64px); background: url('assets/img/splatter.jpg') center; background-size: cover;">
     <div class="d-block d-print-none" style="overflow: auto">

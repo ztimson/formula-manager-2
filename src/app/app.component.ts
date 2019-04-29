@@ -41,8 +41,6 @@ export class AppComponent {
         map(search => formulas.filter(formula => !search || formula.name.toLowerCase().indexOf(search.toLowerCase()) >= 0))
       ))
     );
-
-    this.search.subscribe(val => console.log(val));
   }
 
   approve(formula: Formula) {
@@ -53,7 +51,8 @@ export class AppComponent {
     if(this.formula['total']) return this.formula.components.reduce((acc, row) => acc + ((((row.quantity / this.formula['total']) * this._newTotal) / 1000) * row.component.price), 0);
   }
 
-  edit(formula: Formula) {
+  async edit(formula: Formula) {
+    this.formula = null;
     this.dialog.open(NewFormulaComponent, {data: formula});
   }
 
@@ -62,7 +61,11 @@ export class AppComponent {
   }
 
   displayFormula(formula: Formula) {
-    this.formula = Object.assign({}, formula);
+    let ref = formula.ref;
+    delete formula.ref;
+    this.formula = JSON.parse(JSON.stringify(formula));
+    this.formula.ref = ref;
+
     this.formula.components = this.formula.components.map(component => Object.assign(component, {component: this.appService.components.value.find(c => c.id == <any>component.component)}));
     this.formula['total'] = this.formula.components.reduce((acc, row) => acc + row.quantity, 0);
     this.newTotal = new ConvertFromGPipe().transform(this.formula['total'], this.unit);

@@ -6,7 +6,7 @@
         <div class="p-2 text-right" style="width: 100px">$/Kg</div>
     </div>
     <div class="border-bottom w-100 py-2 text-center">
-        <a (click)="createComponent()" routerLink="">+ Add Component</a>
+        <a (click)="createComponent()" class="text-primary curs-pointer">+ Add Component</a>
     </div>
     <div *ngFor="let c of appService.components | async" class="border-bottom d-flex w-100 py-2">
         <div class="px-2" style="width: 150px"><a (click)="createComponent(c)" routerLink="">{{c.name}}</a></div>

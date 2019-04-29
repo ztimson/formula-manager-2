@@ -26,6 +26,7 @@ import {
   MatSidenavModule, MatToolbarModule
 } from "@angular/material";
 import {LoginComponent} from "./login/login.component";
+import {ScrollingModule} from "@angular/cdk/scrolling";
 
 @NgModule({
   declarations: [
@@ -59,7 +60,8 @@ import {LoginComponent} from "./login/login.component";
     MatSidenavModule,
     MatToolbarModule,
     NgxElectronModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    ScrollingModule
   ],
   providers: [{provide: FirestoreSettingsToken, useValue: {}}],
   entryComponents: [

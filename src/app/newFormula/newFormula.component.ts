@@ -62,9 +62,9 @@ export class NewFormulaComponent {
 		};
 
 		if (!this.data) {
-			this.db.collection('formulas').doc(this.name).set(newFormula).then(ignore => this.dialogRef.close());
+			this.db.collection('formulas').doc(this.name).set(newFormula).then(ignore => this.dialogRef.close(newFormula));
 		} else {
-			this.data.ref.update(newFormula).then(ignore => this.dialogRef.close());
+			this.data.ref.update(newFormula).then(ignore => this.dialogRef.close(newFormula));
 		}
 	}
 
