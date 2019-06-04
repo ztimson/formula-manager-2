@@ -9,9 +9,9 @@ export class ConvertFromGPipe implements PipeTransform {
       case 'oz':
         return Math.round(grams / 28.34952);
       case 'lb':
-        return Math.round(grams * 0.0022 * 100) / 100;
+        return Math.round(grams * 0.0022 * 1000) / 1000;
       case 'kg':
-        return Math.round((grams / 1000) * 100) / 100;
+        return Math.round((grams / 1000) * 1000) / 1000;
       default:
         return Math.round(grams);
     }
