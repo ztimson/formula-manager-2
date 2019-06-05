@@ -7,13 +7,13 @@ export class ConvertFromGPipe implements PipeTransform {
   transform(grams: number, to: string): number {
     switch (to) {
       case 'oz':
-        return Math.round(grams / 28.34952);
+        return grams / 28.34952;
       case 'lb':
-        return Math.round(grams * 0.0022 * 100) / 100;
+        return grams * 0.0022;
       case 'kg':
-        return Math.round((grams / 1000) * 100) / 100;
+        return grams / 1000;
       default:
-        return Math.round(grams);
+        return grams;
     }
   }
 }

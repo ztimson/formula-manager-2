@@ -69,7 +69,7 @@
           <tbody>
           <tr *ngFor="let c of formula.components">
             <td>{{c.component?.name}}</td>
-            <td class="text-right" style="width: 100px">{{c.quantity | scale: formula?.total : _newTotal | convertFromG: unit}} {{unit}}</td>
+            <td class="text-right" style="width: 100px">{{c.quantity | scale: formula?.total : _newTotal | convertFromG : unit | number : '1.0-2'}} {{unit}}</td>
             <td class="text-right" style="width: 100px">{{c.quantity | scale: formula?.total : _newTotal / 1000 * c.component.price | currency}}</td>
           </tbody>
         </table>
