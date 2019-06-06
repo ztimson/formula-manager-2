@@ -67,7 +67,7 @@ export class AppComponent {
     this.formula.ref = ref;
 
     this.formula.components = this.formula.components.map(component => Object.assign(component, {component: this.appService.components.value.find(c => c.id == <any>component.component)}));
-    this.formula['total'] = this.formula.components.reduce((acc, row) => acc + row.quantity, 0);
+    this.formula['total'] = this.formula.components.reduce((acc, row) => acc + (Math.round(row.quantity * 100) / 100), 0);
     this.newTotal = new ConvertFromGPipe().transform(this.formula['total'], this.unit);
   }
 
