@@ -11,6 +11,8 @@ function createWindow() {
     height: 800
   });
 
+  win.setMenu(null);
+
   win.loadURL(
     url.format({
       pathname: path.join(__dirname, `/../../dist/FormulaManager2/index.html`),
