@@ -6,15 +6,15 @@
   <img src="./src/assets/img/logo.png" alt="Logo" width="200" height="200">
 
   <!-- Title -->
-### Formula Manager 2
+  ### Formula Manager 2
 
   <!-- Description -->
-Formula Recording Software V2
+  Formula Recording Software V2
 
   <!-- Repo badges -->
-[![Version](https://img.shields.io/badge/dynamic/json.svg?label=Version&style=for-the-badge&url=https://git.zakscode.com/api/v1/repos/fhsons/formula-manager-2/tags%3Ftoken%3D35a3bf73a216782a7435f86117412bcb9784b716&query=$[0].name)](https://git.zakscode.com/fhsons/formula-manager-2/tags)
-[![Pull Requests](https://img.shields.io/badge/dynamic/json.svg?label=Pull%20Requests&style=for-the-badge&url=https://git.zakscode.com/api/v1/repos/fhsons/formula-manager-2%3Ftoken%3D35a3bf73a216782a7435f86117412bcb9784b716&query=open_pr_counter)](https://git.zakscode.com/fhsons/formula-manager-2/pulls)
-[![Issues](https://img.shields.io/badge/dynamic/json.svg?label=Issues&style=for-the-badge&url=https://git.zakscode.com/api/v1/repos/fhsons/formula-manager-2%3Ftoken%3D35a3bf73a216782a7435f86117412bcb9784b716&query=open_issues_count)](https://git.zakscode.com/fhsons/formula-manager-2/issues)
+  [![Version](https://img.shields.io/badge/dynamic/json.svg?label=Version&style=for-the-badge&url=https://git.zakscode.com/api/v1/repos/fhsons/formula-manager-2/tags%3Ftoken%3D35a3bf73a216782a7435f86117412bcb9784b716&query=$[0].name)](https://git.zakscode.com/fhsons/formula-manager-2/tags)
+  [![Pull Requests](https://img.shields.io/badge/dynamic/json.svg?label=Pull%20Requests&style=for-the-badge&url=https://git.zakscode.com/api/v1/repos/fhsons/formula-manager-2%3Ftoken%3D35a3bf73a216782a7435f86117412bcb9784b716&query=open_pr_counter)](https://git.zakscode.com/fhsons/formula-manager-2/pulls)
+  [![Issues](https://img.shields.io/badge/dynamic/json.svg?label=Issues&style=for-the-badge&url=https://git.zakscode.com/api/v1/repos/fhsons/formula-manager-2%3Ftoken%3D35a3bf73a216782a7435f86117412bcb9784b716&query=open_issues_count)](https://git.zakscode.com/fhsons/formula-manager-2/issues)
 
   <!-- Links -->
 
@@ -33,6 +33,7 @@ Formula Recording Software V2
 - [Formula Manager 2](#top)
 	- [About](#about)
 		- [Built With](#built-with)
+        - [Demo](#demo)
 	- [Setup](#setup)
 		- [Development](#development)
 	- [License](#license)
@@ -54,7 +55,7 @@ All formulas are maintained by FH & Sons and stored using [Firestore](https://fi
 [![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?style=for-the-badge&logo=typescript&logoColor=white)](https://typescriptlang.org/)
 
 ### Demo
-FH & Sons website: https://screenprintingsuppliescanada.com/formulation-manager/
+FH&Sons website: https://screenprintingsuppliescanada.com/formulation-manager/
 
 ## Setup
 
