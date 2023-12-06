@@ -1,5 +1,5 @@
-name: Build
-run-name: Build
+name: Build Website
+run-name: Build Website
 
 on:
     push:
