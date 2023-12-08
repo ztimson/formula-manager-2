@@ -33,6 +33,9 @@ jobs:
         runs-on: ubuntu-latest
         container: node
         steps:
+            -   name: Install Wine
+                run: apt-get update && apt-get install wine64 =y
+
             -   name: Clone Repository
                 uses: ztimson/actions/clone@develop
 
@@ -86,7 +89,7 @@ jobs:
                 run: npm i
 
             -   name: Build Project
-                run: npm run package:mac
+                run: npm run package:linux
 
             -   name: Upload Artifacts
                 if: ${{inputs.artifacts}} != "false"
