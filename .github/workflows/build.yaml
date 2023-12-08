@@ -31,7 +31,7 @@ jobs:
         name: Package Windows
         needs: build
         runs-on: ubuntu-latest
-        container: node
+        container: ztimson/node-wine
         steps:
             -   name: Install Wine
                 run: apt-get update && apt-get install wine -y
