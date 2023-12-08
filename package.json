@@ -8,9 +8,9 @@
 		"start:electron": "npm run build:electron && electron .",
 		"build": "ng build",
 		"build:electron": "ng build --base-href ./",
-		"package:win": "npm run build:electron && electron-packager . \"Formula Manager\" --platform=win32 --arch=ia32 --icon=src/assets/icons/win/icon.ico --prune=true --overwrite --asar",
-		"package:mac": "npm run build:electron && electron-packager . \"Formula Manager\" --platform=darwin --arch=x64 --icon=src/assets/icons/mac/icon.icns --prune=true --overwrite --asar",
-		"package:linux": "npm run build:electron && electron-packager . \"Formula Manager\" --platform=linux --arch=x64 --icon=src/assets/icons/png/1024x1024.png --prune=true --overwrite --asar",
+		"package:win": "npm run build:electron && electron-packager . fm2 --platform=win32 --arch=ia32 --icon=src/assets/icons/win/icon.ico --prune=true --overwrite --asar",
+		"package:mac": "npm run build:electron && electron-packager . fm2 --platform=darwin --arch=x64 --icon=src/assets/icons/mac/icon.icns --prune=true --overwrite --asar",
+		"package:linux": "npm run build:electron && electron-packager . fm2 --platform=linux --arch=x64 --icon=src/assets/icons/png/1024x1024.png --prune=true --overwrite --asar",
 		"watch": "ng build --watch --configuration development"
 	},
 	"private": true,

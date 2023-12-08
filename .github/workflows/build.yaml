@@ -10,22 +10,91 @@ jobs:
         runs-on: ubuntu-latest
         container: node
         steps:
-            - name: Clone Repository
-              uses: ztimson/actions/clone@develop
+            -   name: Clone Repository
+                uses: ztimson/actions/clone@develop
 
-            - name: Install Dependencies
-              run: npm i
+            -   name: Install Dependencies
+                run: npm i
 
-            - name: Build Project
-              run: npm run build
+            -   name: Build Project
+                run: npm run build
 
-            - name: Upload Artifacts
-              if: ${{inputs.artifacts}} != "false"
-              uses: actions/upload-artifact@v3
-              with:
-                  name: website
-                  path: dist
-                  retention-days: 7
+            -   name: Upload Artifacts
+                if: ${{inputs.artifacts}} != "false"
+                uses: actions/upload-artifact@v3
+                with:
+                    name: website
+                    path: dist
+                    retention-days: 7
+
+    package-win:
+        name: Package Windows
+        needs: build
+        runs-on: ubuntu-latest
+        container: node
+        steps:
+            -   name: Clone Repository
+                uses: ztimson/actions/clone@develop
+
+            -   name: Install Dependencies
+                run: npm i
+
+            -   name: Build Project
+                run: npm run package:win
+
+            -   name: Upload Artifacts
+                if: ${{inputs.artifacts}} != "false"
+                uses: actions/upload-artifact@v3
+                with:
+                    name: windows-x32
+                    path: fm2-win32-ia32
+                    retention-days: 7
+
+    package-mac:
+        name: Package MacOS
+        needs: build
+        runs-on: ubuntu-latest
+        container: node
+        steps:
+            -   name: Clone Repository
+                uses: ztimson/actions/clone@develop
+
+            -   name: Install Dependencies
+                run: npm i
+
+            -   name: Build Project
+                run: npm run package:mac
+
+            -   name: Upload Artifacts
+                if: ${{inputs.artifacts}} != "false"
+                uses: actions/upload-artifact@v3
+                with:
+                    name: darwin-x64
+                    path: fm2-darwin-x64
+                    retention-days: 7
+
+    package-linux:
+        name: Package Linux
+        needs: build
+        runs-on: ubuntu-latest
+        container: node
+        steps:
+            -   name: Clone Repository
+                uses: ztimson/actions/clone@develop
+
+            -   name: Install Dependencies
+                run: npm i
+
+            -   name: Build Project
+                run: npm run package:mac
+
+            -   name: Upload Artifacts
+                if: ${{inputs.artifacts}} != "false"
+                uses: actions/upload-artifact@v3
+                with:
+                    name: linux-x64
+                    path: fm2-linux-x64
+                    retention-days: 7
 
     tag:
         name: Tag Version
@@ -33,13 +102,13 @@ jobs:
         runs-on: ubuntu-latest
         container: node
         steps:
-            - name: Clone Repository
-              uses: ztimson/actions/clone@develop
+            -   name: Clone Repository
+                uses: ztimson/actions/clone@develop
 
-            - name: Get Version Number
-              run: echo "VERSION=$(cat package.json | grep version | grep -Eo ':.+' | grep -Eo '[[:alnum:]\.\/\-]+')" >> $GITHUB_ENV
+            -   name: Get Version Number
+                run: echo "VERSION=$(cat package.json | grep version | grep -Eo ':.+' | grep -Eo '[[:alnum:]\.\/\-]+')" >> $GITHUB_ENV
 
-            - name: Tag Version
-              uses: ztimson/actions/tag@develop
-              with:
-                  tag: ${{env.VERSION}}
+            -   name: Tag Version
+                uses: ztimson/actions/tag@develop
+                with:
+                    tag: ${{env.VERSION}}
