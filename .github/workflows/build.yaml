@@ -31,11 +31,8 @@ jobs:
         name: Package Windows
         needs: build
         runs-on: ubuntu-latest
-        container: ztimson/node-wine
+        container: ztimson/node-wine:latest
         steps:
-            -   name: Install Wine
-                run: apt-get update && apt-get install wine -y
-
             -   name: Clone Repository
                 uses: ztimson/actions/clone@develop
 
@@ -43,7 +40,7 @@ jobs:
                 run: npm i
 
             -   name: Build Project
-                run: alias wine64="wine" && npm run package:win
+                run: npm run package:win
 
             -   name: Upload Artifacts
                 if: ${{inputs.artifacts}} != "false"
