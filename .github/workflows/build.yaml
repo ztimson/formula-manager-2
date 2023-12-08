@@ -43,7 +43,7 @@ jobs:
                 run: npm i
 
             -   name: Build Project
-                run: npm run package:win
+                run: alias wine64="wine" && npm run package:win
 
             -   name: Upload Artifacts
                 if: ${{inputs.artifacts}} != "false"
