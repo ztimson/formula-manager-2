@@ -34,7 +34,7 @@ jobs:
         container: node
         steps:
             -   name: Install Wine
-                run: apt-get update && apt-get install wine64 =y
+                run: apt-get update && apt-get install wine -y
 
             -   name: Clone Repository
                 uses: ztimson/actions/clone@develop
