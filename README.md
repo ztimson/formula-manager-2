@@ -61,6 +61,19 @@ FH&Sons website: https://screenprintingsuppliescanada.com/formulation-manager/
 
 <details>
 <summary>
+  <h3 id="produciton" style="display: inline">
+    Production
+  </h3>
+</summary>
+
+#### Instructions
+1. Download the latest [release](https://git.zakscode.com/fhsons/formula-manager-2/releases/)
+2. Extract to desired install directory & run the application (`.exe` on windows)
+
+</details>
+
+<details>
+<summary>
   <h3 id="development" style="display: inline">
     Development
   </h3>
