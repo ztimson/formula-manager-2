@@ -1,4 +1,4 @@
-@import '~@angular/material/prebuilt-themes/indigo-pink.css';
+@import '@angular/material/prebuilt-themes/indigo-pink.css';
 @import url('https://use.fontawesome.com/releases/v5.1.0/css/all.css');
 @import url('https://fonts.googleapis.com/css?family=Material+Icons|Roboto+Condensed');
 @import url('https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css');
@@ -44,8 +44,12 @@ u:hover,
   text-decoration: none;
 }
 
+.active {
+	background-color: #f0f0f0;
+}
+
 .curs-pointer {
-  cursor: pointer;
+  cursor: pointer !important;
 }
 
 .dark-hover:hover {

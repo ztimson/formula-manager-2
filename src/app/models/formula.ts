@@ -1,13 +1,13 @@
 import {Component} from './component';
-import {AngularFirestoreDocument} from "@angular/fire/firestore";
 
 export interface Formula {
-  ref?: AngularFirestoreDocument;
+  ref?: any;
 
   approved: boolean;
-  approvedOn: Date;
+  approvedOn: Date | any;
   components: {component: Component; quantity: number}[];
-  createdOn: Date;
+  createdOn: Date | any;
   id: string;
   name: string;
+  total?: number
 }

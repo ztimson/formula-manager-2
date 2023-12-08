@@ -1,24 +1,25 @@
-import { Component, Inject } from '@angular/core';
-import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
-import { AngularFirestore } from '@angular/fire/firestore';
-import { LocalStorage } from 'webstorage-decorators';
-import { ConvertToGPipe } from '../units.pipe';
-import {AppService} from "../app.service";
+import {Component, Inject} from '@angular/core';
+import {AngularFirestore} from '@angular/fire/compat/firestore';
+import {MAT_DIALOG_DATA, MatDialogRef} from '@angular/material/dialog';
+import {LocalStorage} from 'webstorage-decorators';
+import {AppService} from "../../services/app.service";
+import {ConvertToGPipe} from '../../pipes/units.pipe';
+import {Component as Comp} from '../../models/component';
 
 @Component({
 	selector: 'new-formula',
 	templateUrl: './newFormula.component.html'
 })
 export class NewFormulaComponent {
-	name: string;
-	amount: number;
+	name?: string | null;
+	amount?: number | null;
 	approved: boolean = false;
-	component: string;
-	components: { component: Component; quantity: number }[] = [];
-	componentsList = [];
+	component?: string | null;
+	components: { component: Comp; quantity: number }[] = [];
+	componentsList: Comp[] = [];
 	exists: boolean = false;
-	@LocalStorage({ defaultValue: 'kg', fieldName: 'newFormulaUnit' })
-	unit;
+
+	@LocalStorage({defaultValue: 'kg', fieldName: 'newFormulaUnit'}) unit!: string;
 
 	constructor(
 		private dialogRef: MatDialogRef<NewFormulaComponent>,
@@ -28,7 +29,7 @@ export class NewFormulaComponent {
 	) {
 		this.appService.components.subscribe(rows => (this.componentsList = rows));
 
-		if (this.data) {
+		if(this.data) {
 			this.name = this.data.name;
 			this.approved = this.data.approved;
 			this.components = this.data.components;
@@ -38,14 +39,14 @@ export class NewFormulaComponent {
 	add() {
 		let component = this.componentsList.find(row => row.name == this.component);
 		let amount = new ConvertToGPipe().transform(Number(this.amount), this.unit);
-		this.components.push({ component: component, quantity: amount });
+		this.components.push({component: <Comp>component, quantity: amount});
 		this.component = null;
-	    this.amount = null;
+		this.amount = null;
 	}
 
-	checkExists(name) {
+	checkExists(target: any) {
 		this.appService.formulas.subscribe(formulas => {
-			this.exists = !!formulas.find(f => f.id == name)
+			this.exists = !!formulas.find(f => f.id == target.value);
 		});
 	}
 
@@ -61,8 +62,8 @@ export class NewFormulaComponent {
 			createdOn: new Date()
 		};
 
-		if (!this.data) {
-			this.db.collection('formulas').doc(this.name).set(newFormula).then(ignore => this.dialogRef.close(newFormula));
+		if(!this.data) {
+			this.db.collection('formulas').doc(<string>this.name).set(newFormula).then(ignore => this.dialogRef.close(newFormula));
 		} else {
 			this.data.ref.update(newFormula).then(ignore => this.dialogRef.close(newFormula));
 		}
