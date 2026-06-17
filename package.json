@@ -17,7 +17,7 @@
 	"dependencies": {
 		"@angular/cdk": "^17.0.0",
 		"@angular/animations": "^17.0.0",
-		"@angular/common": "^17.0.0",
+		"@angular/common": "^20.3.25",
 		"@angular/compiler": "^17.0.0",
 		"@angular/core": "^17.0.0",
 		"@angular/fire": "^17.0.0",
